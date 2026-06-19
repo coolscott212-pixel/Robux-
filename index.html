@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>Welcome to my website!</h1>
+    <P>Click the button to buy robux</P>
+    <button onclick="BuyRobux()">Buy Robux</button>
+    <button onclick="BuyBps()">Buy Bps</button>
+    <p>Robux: <span id="RobuxCount">0</span></p>
+    <p>Bps: <span id="BpsCount">0</span></p>
+   
+   <script>
+    let Robux = 0;
+    let BpsCount = 0;
+    let BpsInterval = setInterval(Bps, 1000);
+
+    function BuyRobux() {
+        if (BpsCount > 0) {
+            Robux += BpsCount;
+            document.getElementById('RobuxCount').textContent = Robux;
+        }
+        Robux++;
+        document.getElementById('RobuxCount').textContent = Robux;
+    }
+
+    function Bps() {
+        if (BpsCount > 0) {
+            Robux += BpsCount;
+            document.getElementById('RobuxCount').textContent = Robux;
+        }
+    }
+
+    function BuyBps() {
+        if (Robux >= 10) {
+            Robux -= 10;
+            BpsCount++;
+            document.getElementById('RobuxCount').textContent = Robux;
+            document.getElementById('BpsCount').textContent = BpsCount;
+        } else {
+            alert("You don't have enough Robux to buy Bps!");
+        }
+    }
+    </script>
+
+   <footer>
+    © 2026 Shop 1. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
